@@ -1,19 +1,19 @@
 @echo off
 
-SET IDEA_USER="C:\Users\%USERNAME%\.IntelliJIdea%1\config"
-SET IDEA_EXE=idea.exe
-SET IDEA_EXE64=idea64.exe
+set IDEA_USER="C:\Users\%USERNAME%\.IntelliJIdea%1\config"
+set IDEA_EXE=idea.exe
+set IDEA_EXE64=idea64.exe
 
 if [%1]==[] (
-	echo You have not specified version for IntelliJ Idea.
-	exit /b
+    echo You have not specified version for IntelliJ Idea.
+    exit /b
 )
-echo %IDEA_USER%
-IF EXIST %IDEA_USER% (
-echo Your user directory: %IDEA_USER%
+
+if exist %IDEA_USER% (
+    echo Your user directory: %IDEA_USER%
 ) ELSE (
-echo You have specified wrong version of IntelliJ Idea, or it is not installed in your system.
-exit /b
+    echo You have specified wrong version of IntelliJ Idea, or it is not installed in your system.
+    exit /b
 )
 echo Closing idea 32x...
 taskkill /f /im "idea.exe"
@@ -21,12 +21,12 @@ echo Closing idea 64x...
 taskkill /f /im "idea64.exe"
 :CLOSING
 tasklist | findstr /I %IDEA_EXE64% | findstr /I %IDEA_EXE% >nul 2>&1
-IF ERRORLEVEL 1 (
-  GOTO CONTINUE
-) ELSE (
-  ECHO Closing idea...
-  SLEEP 5
-  GOTO CLOSING
+if errorlevel 1 (
+    goto CONTINUE
+) else (
+    echo Closing idea...
+    sleep 5
+    goto CLOSING
 )
 :CONTINUE
 echo Cleaning evaluation key...
