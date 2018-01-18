@@ -11,7 +11,7 @@ if [%1]==[] (
 
 if exist %IDEA_USER% (
     echo Your user directory: %IDEA_USER%
-) ELSE (
+) else (
     echo You have specified wrong version of IntelliJ Idea, or it is not installed in your system.
     exit /b
 )
