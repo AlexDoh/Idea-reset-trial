@@ -1,2 +1,2 @@
 # Idea-reset-trial
-Simple Idea trial reset
+Simple Idea trial reset for Windows
