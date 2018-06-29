@@ -19,16 +19,6 @@ echo Closing idea 32x...
 taskkill /f /im "idea.exe"
 echo Closing idea 64x...
 taskkill /f /im "idea64.exe"
-:CLOSING
-tasklist | findstr /I %IDEA_EXE64% | findstr /I %IDEA_EXE% >nul 2>&1
-if errorlevel 1 (
-    goto CONTINUE
-) else (
-    echo Closing idea...
-    sleep 5
-    goto CLOSING
-)
-:CONTINUE
 echo Cleaning evaluation key...
 rmdir /s /q %IDEA_USER%\eval
 echo Reseting evaluation info...
