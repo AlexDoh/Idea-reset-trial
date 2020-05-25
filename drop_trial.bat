@@ -1,6 +1,6 @@
 @echo off
 
-set IDEA_USER="C:\Users\%USERNAME%\.IntelliJIdea%1\config"
+set IDEA_USER="%APPDATA%\JetBrains\IntelliJIdea%1"
 set IDEA_EXE=idea.exe
 set IDEA_EXE64=idea64.exe
 
